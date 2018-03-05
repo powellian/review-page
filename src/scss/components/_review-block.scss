@@ -1,0 +1,146 @@
+/*
+*	Review block
+*/
+
+@mixin review-block-common {
+	@include display-flex;
+	@include align-items-center;
+	@include justify-content-center;		
+}
+
+.review-block {
+	font-family: $font-swiss-sans;
+	letter-spacing: -0.1px;	
+	padding-top: 40px;
+	padding-bottom: $common-size*2;
+
+	@media (max-width: $breakpoint-sml) {
+		padding-top: $common-size*1.5;
+		padding-bottom: $common-size*1.5; 
+	}
+
+	&__header {
+		text-align: center;
+		width: 100%;
+
+		h3 {
+			color: $anchor-blue;
+			@include font-size(36);
+			letter-spacing: -0.2px;
+			margin-bottom: $common-size/3;
+			
+			@media (max-width: $breakpoint-sml) {
+				@include font-size(18);
+				letter-spacing: 0.001em;
+			}
+			// Tablet max 768 - could also add orientation:
+			@media (min-width: $breakpoint-xsml) and (max-width: $breakpoint-med) {
+				@include font-size(25);
+			}
+		}
+		p {
+			@include font-size(24);
+			letter-spacing: -0.1px;
+			margin-bottom: $common-size*1.5;
+
+			@media (max-width: $breakpoint-sml) {
+				@include font-size(16);
+				margin-bottom: $common-size+4;
+			}
+			// Tablet max 768 - could also add orientation:
+			@media (min-width: $breakpoint-xsml) and (max-width: $breakpoint-med) {
+				@include font-size(20);
+			}
+		}
+	}	
+
+	// Tools > buttons block
+	&__tools {
+		@include review-block-common;
+		@include flex-wrap-wrap;
+		@include flex-direction-row;
+		width: 100%;
+	}
+	// Tools > buttons list
+	&__list {
+		@include review-block-common;
+		@include reduced-width;
+		@include list-zero;
+		margin-bottom: ($common-size/3)*2;
+
+		// Tablet max 768 - could also add orientation:
+		@media (min-width: 0) and (max-width: $breakpoint-med) {
+			width: 100%; 
+		}
+
+		li {
+			@include list-item-base;
+			margin-left: $common-size/4;
+			width: 10%;
+			height: 55px;
+
+			@media (max-width: $breakpoint-sml) {
+				height: 38px;
+			}
+
+			&:first-child { margin-left: 0; }
+
+			button {
+				width: 100%;
+				height: 100%;
+				display: inline-block;
+				padding: 0;
+				text-align: center;
+				color: $anchor-blue;
+				@include font-size(28);
+				border: 1px solid $anchor-blue;
+				border-radius: 3px;
+				background: transparent;
+				@include trn-tgt(all);
+
+				@media (max-width: $breakpoint-sml) {
+					@include font-size(21); 
+				}
+
+				&:hover {
+					background: $anchor-blue;
+					color: $white;
+					cursor: pointer;
+				}
+
+				&.active {
+					background: $anchor-blue;
+				}
+			}
+		}
+	}
+
+	// Result - Waste/Excellent > wrapper
+	&__results-block {
+		@include display-flex;
+		@include reduced-width;
+
+		// Zero to Tablet max 768 - could also add orientation:
+		@media (min-width: 0) and (max-width: $breakpoint-med) {
+			width: 100%; 
+		}
+	}
+	
+	// Result - Waste/Excellent > copy & alignment
+	&__result {
+
+		&--negative,
+		&--positive {
+			@include display-flex;
+			width: 50%;
+
+			p { 
+				letter-spacing: -0.1px;
+				@include font-size(16);				
+			}
+		}
+		// Position the result - start/end of containing blocks
+		&--negative { @include justify-content-flex-start; }
+		&--positive { @include justify-content-flex-end; }
+	}
+}

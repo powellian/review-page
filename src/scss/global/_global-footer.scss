@@ -1,0 +1,21 @@
+/*
+*	Global <footer>
+*/
+
+.global-footer {
+	text-align: center;
+	padding-top: $common-size*2;
+	padding-bottom: $common-size*1.5;
+
+	@media (max-width: $breakpoint-sml) {
+		padding-top: $common-size;  
+		padding-bottom: $common-size;
+	}
+
+	// copyright:
+	p {
+		font-family: $font-swiss-sans;
+		color: $copy-col-light;
+		@include font-size(12);
+	}
+}

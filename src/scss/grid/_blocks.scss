@@ -1,0 +1,56 @@
+/*
+*	Grid: blocks
+*/
+
+.pod {
+	@include display-flex;
+	@include flex-wrap-wrap;
+	@include flex-direction-row;
+	margin: 0 auto;
+	padding-left: $common-size/2;
+	padding-right: $common-size/2;
+
+	// Mobile pods - remove padding and re-address width below
+	@media (max-width: $breakpoint-sml) {
+		padding-left: 0;
+		padding-right: 0;	
+	}
+
+	&__inner { 
+		@include display-flex; 
+		width: 100%;
+	}
+
+	&__transparent { background: transparent; }
+
+	&--pod-2 {
+		width: 20%;
+		@media (max-width: $breakpoint-med) { width: 100%; }
+	}
+	&--pod-3 {
+		width: 25%;
+		@media (max-width: $breakpoint-med) { width: 100%; }
+	}
+	&--pod-4 {
+		width: 33.3%;
+		@media (max-width: $breakpoint-med) { width: 100%; }
+	}
+	&--pod-6 {
+		width: 50%;
+		@media (max-width: $breakpoint-med) { width: 100%; }
+	}
+	&--pod-8 {
+		width: 66.6%;
+		@media (max-width: $breakpoint-med) { width: 100%; }
+	}
+	&--pod-10 {
+		width: 80%;
+		@media (max-width: $breakpoint-med) { width: 85%; }
+	}
+	/*
+	*	... up to ...
+	*/
+	&--pod-12 {
+		width: 100%;
+	}
+}

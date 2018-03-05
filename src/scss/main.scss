@@ -1,0 +1,31 @@
+/*
+*	Project .scss imports
+*/
+
+// Vendor
+@import "vendor/modal/modal_vendor";
+
+// Base settings:
+@import 'base/bs-reboot'; // https://v4-alpha.getbootstrap.com/content/reboot/
+@import 'base/hello';
+@import 'base/flexbox';
+@import 'base/utility';
+@import 'base/colours';
+@import 'base/dom-elements-attrs';
+@import 'base/typography';
+
+// Grid related
+@import 'grid/grid-widths_breakpoints';
+@import 'grid/containers';
+@import 'grid/blocks';
+
+// Global elements
+@import 'global/page-top';
+@import 'global/primary-header';
+@import 'global/global-footer';
+
+// Components
+@import 'components/hero';
+@import 'components/main-content';
+@import 'components/review-block';
+@import 'components/modal';

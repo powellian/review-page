@@ -1,0 +1,18 @@
+/*
+*	Blog - Hero
+*/
+
+.container__fluid {
+
+	&.hero-block {
+		max-width: $width-lg + ($common-size*4);
+		margin: 0 auto;
+		
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+

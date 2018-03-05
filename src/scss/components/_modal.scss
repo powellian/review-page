@@ -1,0 +1,110 @@
+/*
+*	Modal styling - override vendor modal styling here to allow for painless plugin upgrades
+*/
+
+// First stop the page/background scrolling while the modal is open, introducing v-scrollbar:
+body.modal-visible { overflow: hidden; }
+
+.vanilla-modal {
+	.modal {
+		background: $white;
+
+		&.modal>* {
+			text-align: center;
+		}
+	}
+}
+
+.modal-inner {
+	max-width: 70%;
+	overflow-x: visible;
+	overflow-y: visible;
+
+	@media (max-width: $breakpoint-sml) {
+		max-width: 100%;
+		position: relative;
+		left: -5px;
+	}
+
+	.modal-content {
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+// Modal Close button
+[data-modal-close] {
+	right: 5%;
+	top: 5%;
+	box-shadow: none;
+}
+
+.circle {
+	width: 40px;
+	height: 40px;
+	background: transparent;
+	border: 2px solid $light-grey;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	cursor: pointer;
+	display: inline-block;
+	transition: $common-transition;
+
+	&:hover {
+		border: 2px solid $anchor-blue;
+		background: $anchor-blue;
+			
+		.circle-inner {
+			&:before, &:after { background-color: $white; }
+		}
+	}
+
+	.circle-inner {
+		position: relative;
+
+		&:before,
+		&:after {
+			margin: 0;
+			width: 24px;
+			height: 3px;
+			background-color: $black;
+			content: "";
+			position: absolute;
+			left: -12px;
+			top: 30px;
+			-moz-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+			transition: $common-transition;
+		}
+		&:after {
+			-moz-transform: rotate(-45deg);
+			-ms-transform: rotate(-45deg);
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		}
+	}
+
+	// Chrome only
+	.circle-inner:not(*:root) {
+
+		&:before,
+		&:after {
+			left: 8px;
+			top: 19px;
+		}
+	}
+	// IExploder 10>= (not tested in Edge)
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+		.circle-inner::before,
+		.circle-inner::after {
+			left: -12px;
+			top: 17px;
+		}
+	}
+}

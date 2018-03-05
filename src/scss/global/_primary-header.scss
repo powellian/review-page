@@ -1,0 +1,151 @@
+/*
+*	Primary header
+*/
+
+.primary-header {
+	font-family: $font-swiss-sans;	
+
+	// Breadcrumb/Animals link and author ======================
+	&__top-margin {	
+
+		// Width (inner) = 971px (via _grid-widths_breakpoints.scss)
+		// Width (outer) = (Width (inner) + (2 x 24px)) = 1019px (via addition of padding left/right)
+		// Height declaration for 'top-margin' block: 20px + 18px + 20px = 58px (re: Dev Task_Compressed_180102.pdf page 7)
+		// Height re-addressed in @media queries
+		// Contents vertically centered via flexbox	
+		padding-left: $common-size;
+		padding-right: $common-size;
+		height: 58px;
+
+		margin-bottom: $common-size*1.5;
+		@include font-size(16);
+		letter-spacing: -0.1px;
+
+		@media (max-width: $breakpoint-sml) {
+			height: auto;
+			margin-bottom: 28px;
+		}
+
+		&--pod-inner { 
+			@include display-flex;
+			@include align-items-center;
+			height: 100%;
+			border-bottom: solid 1px $light-grey;
+
+			@media (max-width: $breakpoint-sml) {
+				@include flex-direction-column;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+		}
+	}
+
+	&__breadcrumb-block { 
+		@include display-flex;
+		@include justify-content-flex-start;
+		width: 40%;
+
+		@media (max-width: $breakpoint-sml) {
+			@include justify-content-center;
+			width: 100%;
+		}
+	}
+
+	&__breadcrumb-link {
+		// Add the arrow roundel/icon - has a bit of movement on hover
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAAGWB6gOAAAAAXNSR0IArs4c6QAABOVJREFUWAm1WF1sVEUU/uYCKun6QxESCb6BicafFxJi/WFLu7xUIxDhSXzxSQ2xAqIhxsQHEzWa0DQaX/yhEjUQEH/KA5eyS8SmMfpANKn6gmIiBLQauzXFlB3PmXvPOPfuzN1tsZNs5vyfc8/8nDkLpGNdr/5BYMXAuh6thcBz5EoIwy8pXJlPjigjiL4+vaTcq6vMUE0ORLx2PIEiIbz5VgJlvBEykFglZt6WaLJnxV7r05gQItsv9wqWzNHUJRwWkgTA864dQqWQGQy5Yh7HxLMdlLN95R49Wa7oRyyRALF0jOCKy2BYXYsltSPqz6i7ou/xCbCQnsQfPDelcdmNwMXfmJUMcjVjMynEvyaBVasEI2vAwoWCyucL7uaqyZ0nmVX5usz+EWs887KYmJZ3wrrNCzBuLLkMTkmjgVMuzQOPkgdOnR3WEC2fN+lWMgBwpAcPqsstvy2gnyEviLA56u7VQxlqDil1AJzdlStzDAe93MDhqKGx0aE1gfWpZL+fO5cYvOP2JhFDiBDhST8rSz12FPjgI+Db77J0wSRHXxKhS4j5udIDxCN56n+4ObqCljfqG2THC63lrDB+8ri6jeXs8rtK6yt6E+2lA7z5XXoKVymC9Xm61xALmROu8RgdpTVa4VcijZWuRv/wsDLntKUh2piF+WIDUYR7q7FiOTtsRHPIUUyfuEEsmQO5ZYteMOtE0x2WHitjyxi6MIEZsTzLuZLee4h4hWapnBGXmyLiZc5wHOTBPuD9dx1CAOQyEgX2ilH5bBiYrAMHPgxYSMl/X8KAyVGR2BPbgbNngSOHwlINYG1LQ6y+61ng9Gng6KcBYxo3+Y6AuX8CKuCann0i0DlT+KapRPgMbKCqt4eicmuLK0flYRt/WtUl5uGHNxcbYflarPZHvpPsGvvq63AkqdwozybZ9NnZIu9Y4hUrGhSIKUvGUG1E9dPNNF6k4OPx+0DoxhAjfNMVRSYKMnM940eG4PYaEQLPdKpP0NTt0hgm4Rm6i7aeiNXHHl6e5Mf5cFP92k7G7is6Vq42OybZL6iADvqcu7ICk45/8F13cQKvk8Gn/BJzo5LDgWWd2MnPBZ+FpoDMzV3HKNWOW30K/xuNNpsqoctdd7ZtNxEj9FzdayrAfAfDzsgH+2KfjMqwGWqnKIrSPMz2GWkylJ6G4IumKIBNDwGd9tQWSRbyutIY6Nlf0dvQwFCheIB5/XXAa68Aq1cD/Ch8+hng/PmAcDvkCI8q7uuoHJTbkQ/JLF4MvPwScNedwO/Ur+2kwH76OSQdplMZqinuu+hol8Ji7XMWLQJefIFes3cnJX73c8D49+3r04auK9NAa9zSSi3ff7WSF/70NPA4PRvOnBFKwazwI1f8Mfq1DChUpPPmy/cDz+9JWslDVBgG38hLFOJjplOfmsYFWjbvc6RQ3WHyk25Hv3mO4J33gKH9DrMNkJZrpuMaLDf3UFqn7L8DbehbkQ7q4fa9DSxdCuwdBD4JPcCshh/ghpHrnQmIRdrsg/3WrpDqdiG2dHBbknbz8RXan416zD7dlshmyLWStkbcAtC7c15GTK+yrfnCyp68AbkhpEv5KtHmVFocW6O0NLvdbDg8C7YMyEqmgPn/7B88QM1PhU7mzfRboTRWMJtbXTLIv18aCnHpKnweannzdgX/F7zclP1R+U7VAAAAAElFTkSuQmCC');
+		background-size: 18px 18px;
+		background-repeat: no-repeat;
+		background-position: right top;
+		padding-right: 25px;
+		position: relative;		
+		font-weight: 600;
+		line-height: 1.2;
+		color: $black;
+		transition: $common-transition;
+
+		&:hover { 
+			color: $black;
+			padding-right: 27px;
+		}
+
+		@media (max-width: $breakpoint-sml) {
+			@include justify-content-center;
+			margin-bottom: 5px;
+		}
+	}
+
+	&__author {
+		@include display-flex;
+		@include justify-content-flex-end;
+		width: 60%;
+		color: $copy-col-light;
+		letter-spacing: -0.1px;
+		line-height: 1.3;
+
+
+		@media (max-width: $breakpoint-sml) {
+			@include justify-content-center;
+			width: 100%;
+		}
+
+		&__list {
+			margin: 0;
+			padding: 0;
+
+			dt { float: left; }
+		}
+
+		&--name {
+			// Add the dot:
+			&:after {
+				content: '\2022';
+				font-size: inherit;
+				font-weight: 600;
+				padding: 0 7px;
+			}
+		}		
+	}
+
+	// Blue Planet copy block ======================
+	&__copy-block {
+		text-align: center;
+		padding-bottom: $common-size*1.5;
+
+		@media (max-width: $breakpoint-sml) { padding-bottom: $common-size+4; }
+
+		h2 { 
+			margin-bottom: 20px;
+			@include font-size(44);
+			letter-spacing: -0.2px;
+			margin-bottom: $common-size;
+			color: $black;
+			
+			// Mobile to Tablet
+			@media (min-width: $breakpoint-xsml) and (max-width: $breakpoint-med) {
+				@include font-size(30);
+			}
+			// Mobile only
+			@media (max-width: $breakpoint-sml) {
+				@include font-size(22);
+				letter-spacing: -0.1px;
+				margin-bottom: $common-size - 4;
+			}
+		}
+		p { 
+			@include font-size(20);
+			letter-spacing: -0.1px;
+			line-height: 1.3;
+
+			// Mobile to Tablet
+			@media (min-width: $breakpoint-xsml) and (max-width: $breakpoint-med) {
+				@include font-size(18);
+			}
+			// Mobile only
+			@media (max-width: $breakpoint-sml) { 
+				@include font-size(16); 
+				line-height: 1.4;
+			}
+		}
+	}
+}

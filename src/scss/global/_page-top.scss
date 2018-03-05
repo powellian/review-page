@@ -1,0 +1,25 @@
+/*
+*	Page abs top
+*/
+
+.heading {
+	
+	// 'Slab' type page heading
+	&__slab {
+		font-family: $font-heading-slab;
+
+		&--page-heading { 
+			@include font-size(56);
+			margin-top: $common-size;
+			margin-bottom: $common-size*1.5;
+
+			@media (max-width: $breakpoint-sml) {
+				@include font-size(40);
+				margin-bottom: 28px;
+				font-weight: 400;
+			}
+
+			a { @include link-hover-plain; }
+		}
+	}
+}

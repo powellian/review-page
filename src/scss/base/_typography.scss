@@ -1,0 +1,89 @@
+/*
+*	Typographical settings
+*/
+
+// Fonts are cached to variables here. Font weights are addressed within the selectors
+// This is based on using something like a font serving service like Typekit etc.
+// In the document <head> update the link to the font, replacing the Google fonts used here (line 14).
+
+// To update font-families do the following:
+// Keep the same Variable names and simply update the Font name e.g.:
+// $font-heading-slab: 'EskorteLatin-Regular', serif;
+// $font-swiss-sans: 'Europa', sans-serif;
+// $font-common: 'UtopiaStd', serif;
+
+// Google fonts, cached
+$font-heading-slab: 'Karma', serif;
+$font-swiss-sans: 'Montserrat', sans-serif;
+$font-common: 'PT Serif', serif;
+
+// @mixin font-size - my own remix of this: https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+// the original leads to gi-normous font sizes.
+// This mixin produces px and rem sized fonts.
+html {
+	font-size: 62.5%; // Base 10
+}
+@mixin font-size($sizeValue: 1.6) {	// User Agent base of 16px
+	font-size: ($sizeValue * 1) + px;
+	font-size: ($sizeValue / 10) + rem;
+}
+///////////////////////////////////////
+
+// Unitless number for line-height: (https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)
+// Set it globally here to <main> copy value - 1.7 - then re-address individually (as per brief).
+body {
+	font-family: $font-common;
+	@include font-size(16);
+	line-height: 1.7;
+	font-weight: 400;
+	color: $copy-col-common;
+}
+
+// Flatten headings (my reset) & re-address later
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	line-height: 1.2;
+	margin: 0;
+}
+
+// Center headings
+.heading {
+	&__block {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+p {	
+	&.lead { @include font-size(34); }
+	&:last-child { margin-bottom: 0; }
+}
+
+p.drop-cap:first-letter {
+	float: left;
+	@include font-size(57);
+	// margin-top: .15em;
+	padding-right: $common-size/3;
+}
+
+a { 
+	@include common-anchor;
+	&.button { color: $white; }
+	&.button--hollow { color: $anchor-blue; }
+}
+
+dt { font-weight: normal; }
+
+sup { position: relative; }
+
+// Accessible hidden text: https://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/
+@mixin hidden-text {
+	clip: rect(1px, 1px, 1px, 1px); 
+	height: 1px; 
+	width: 1px; 
+	overflow: hidden; 
+	position: absolute !important;
+}
+.hide-text { 
+	@include hidden-text;
+}

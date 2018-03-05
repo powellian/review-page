@@ -1,0 +1,57 @@
+/*
+*	Grid: containers
+*/
+
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: $common-size;
+	padding-right: $common-size;
+	width: 100%;
+	background: $white;
+
+	// Full width container - for bg-colour blocks
+	&__fluid { 
+		width: 100%;
+		padding: 0;
+	}
+
+	&__flat {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	// 'Row' element
+	&__inner {
+		@include display-flex;
+		margin-left: - $common-size;
+		margin-right: - $common-size;
+
+		.global-footer & { margin-bottom: 0; }
+	}
+
+	&--transparent { background: transparent; }
+
+	// Zero to mobile-min
+	@media screen and (min-width: 0) and (max-width: $breakpoint-sml) {}
+
+	// Small devices (landscape phones, 576px and up)
+	@media (min-width: $breakpoint-sml) {
+		max-width: $width-sml;
+	}
+
+	// Medium devices (tablets, 768px and up)
+	@media (min-width: $breakpoint-med) {
+		max-width: $width-med;
+	}
+
+	// Large devices (desktops, 971px and up)
+	@media (min-width: $breakpoint-lg) {
+		max-width: $width-lg + (2*$common-size); // = 971 + (2*24)
+	}
+
+	// Extra large devices (large desktops, 1170px and up)
+	// @media (min-width: $breakpoint-xl) {
+	// 	max-width: $width-xl;
+	// }
+}

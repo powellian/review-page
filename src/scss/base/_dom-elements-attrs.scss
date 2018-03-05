@@ -1,0 +1,38 @@
+/*
+*	Common attributes
+*/
+body { background: $body-blue; }
+$common-size: 24px;
+$common-transition: all 0.15s ease;
+$common-transition-min: 0.15s ease;
+@mixin trn-tgt($element){ 
+	transition: $element, $common-transition-min;
+}
+
+/*
+*	Misc. DOM elements
+*/
+figure {
+	margin-bottom: 0;
+	
+	img { 
+		@include img-responsive;
+		margin-bottom: $common-size;
+	}
+}
+
+hr {
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 100%;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid;
+
+	&.hr {
+
+		&--light { border-top-color: $light-grey; }
+		&--dark { border-top-color: $anchor-blue; }
+	}
+}
