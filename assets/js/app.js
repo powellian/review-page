@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	var reviewLi = document.querySelectorAll('.review-block__li');
 	var reviewBtn = document.querySelector('.review-block__li button');
 	
-	// Convert Node List to an Array - then use forEach
+	// Use array.prototype and forEach on the node list: querySelectorAll('.review-block__li');
 	Array.prototype.forEach.call(
 		document.querySelectorAll('.review-block__li'),
 		function(element) {
