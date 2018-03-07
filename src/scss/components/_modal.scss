@@ -20,11 +20,7 @@ body.modal-visible { overflow: hidden; }
 	overflow-x: visible;
 	overflow-y: visible;
 
-	@media (max-width: $breakpoint-sml) {
-		max-width: 100%;
-		position: relative;
-		left: -5px;
-	}
+	@media (max-width: $breakpoint-sml) { max-width: 100%; }
 
 	.modal-content {
 
