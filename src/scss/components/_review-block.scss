@@ -62,7 +62,7 @@
 		width: 100%;
 	}
 	// Tools > buttons list
-	&__list {
+	&__ul {
 		@include review-block-common;
 		@include reduced-width;
 		@include list-zero;
@@ -71,47 +71,44 @@
 		// Tablet max 768 - could also add orientation:
 		@media (min-width: 0) and (max-width: $breakpoint-med) {
 			width: 100%; 
+		}		
+	}
+
+	&__li {
+		@include list-item-base;
+		margin-left: $common-size/4;
+		width: 10%;
+		height: 55px;
+
+		@media (max-width: $breakpoint-sml) {
+			height: 38px;
 		}
 
-		li {
-			@include list-item-base;
-			margin-left: $common-size/4;
-			width: 10%;
-			height: 55px;
+		&:first-child { margin-left: 0; }
+	}
 
-			@media (max-width: $breakpoint-sml) {
-				height: 38px;
-			}
+	&__button {
+		width: 100%;
+		height: 100%;
+		display: inline-block;
+		padding: 0;
+		text-align: center;
+		color: $anchor-blue;
+		@include font-size(28);
+		border: 1px solid $anchor-blue;
+		border-radius: 3px;
+		background: transparent;
+		@include trn-tgt(all);
 
-			&:first-child { margin-left: 0; }
+		@media (max-width: $breakpoint-sml) {
+			@include font-size(21); 
+		}
 
-			button {
-				width: 100%;
-				height: 100%;
-				display: inline-block;
-				padding: 0;
-				text-align: center;
-				color: $anchor-blue;
-				@include font-size(28);
-				border: 1px solid $anchor-blue;
-				border-radius: 3px;
-				background: transparent;
-				@include trn-tgt(all);
-
-				@media (max-width: $breakpoint-sml) {
-					@include font-size(21); 
-				}
-
-				&:hover {
-					background: $anchor-blue;
-					color: $white;
-					cursor: pointer;
-				}
-
-				&.active {
-					background: $anchor-blue;
-				}
-			}
+		&:hover,
+		li.active & {	// Target parent <li>
+			background: $anchor-blue;
+			color: $white;
+			cursor: pointer;
 		}
 	}
 
