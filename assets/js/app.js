@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	var reviewUl = document.querySelector('.review-block__list');
 	var reviewLi = document.querySelectorAll('.review-block__li');
-	var reviewBtn = document.querySelector('.review-block__li button');
+	var reviewBtn = document.querySelectorAll('.review-block__li button');
 	
 	// Use array.prototype and forEach on the node list: querySelectorAll('.review-block__li');
 	Array.prototype.forEach.call(
-		document.querySelectorAll('.review-block__li'),
-		function(element) {
-			// on-click call LiAaddActive();
+		// reviewLi, function(element) {
+		reviewBtn, function(element) {
+			// on-click of 'review-block__li' call function: LiAaddActive();
 			element.onclick = LiAaddActive;
 		}
 	);
@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (element.classList.contains('active')) {
 			element.classList.remove('active');
 		} else {
-			reviewLi.forEach(function(e) {
+			// reviewLi.forEach(function(e) {
+			reviewBtn.forEach(function(e) {
 				e.classList.remove('active');
 			});
 			element.classList.add('active');
