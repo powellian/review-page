@@ -1,5 +1,5 @@
 /*
-*	Modal styling - override vendor modal styling here to allow for painless plugin upgrades.
+*	Modal styling - override vendor modal styling here to allow for painless plugin upgrades
 */
 
 // First stop the page/background scrolling while the modal is open, introducing v-scrollbar:
@@ -20,7 +20,11 @@ body.modal-visible { overflow: hidden; }
 	overflow-x: visible;
 	overflow-y: visible;
 
-	@media (max-width: $breakpoint-sml) { max-width: 100%; }
+	@media (max-width: $breakpoint-sml) {
+		max-width: 100%;
+		position: relative;
+		left: -5px;
+	}
 
 	.modal-content {
 
