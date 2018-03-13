@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Use array.prototype and forEach on the node list: querySelectorAll('.review-block__li');
 	Array.prototype.forEach.call(
 		reviewLi, function(element) {
-		// reviewBtn, function(element) {
+		// reviewBtn, function(element) {			// .review-block__button
 			element.onclick = LiAaddActive;
-			// element.onclick = BtnAaddActive;
+			// element.onclick = BtnAaddActive;		// .review-block__button
 		}
 	);
 
 	// Add/Remove .active
 	function LiAaddActive(element) {
-	// function BtnAaddActive(element) {
+	// function BtnAaddActive(element) {			// .review-block__button
 		element = this;
 		if (element.classList.contains('active')) {
 			element.classList.remove('active');
