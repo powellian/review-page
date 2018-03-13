@@ -105,7 +105,8 @@
 		}
 
 		&:hover,
-		li.active & {
+		li.active & {	// with parent <li> .active
+		// &.active {	// with 'self' active
 			background: $anchor-blue;
 			color: $white;
 			cursor: pointer;
