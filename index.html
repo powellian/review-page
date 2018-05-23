@@ -52,8 +52,12 @@
 		</header>
 
 		<!-- Hero image -->
-		<div class="container__fluid  hero-block">
-			<img src="assets/img/4097_optim.jpg" alt="Image of a Killer Whale with a fishing boat in background.">
+		<div class="container__fluid hero-block teaser lazyload">
+			<img
+				alt="Image of a Killer Whale with a fishing boat in background."
+				src="assets/img/killa-w_lo.jpg"
+				data-src="assets/img/killa-w_hi.jpg"
+				class="lazyload" />
 		</div>
 
 		<!-- Main content -->
@@ -64,8 +68,13 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium explicabo labore, consequuntur officiis et aliquid soluta ab, nobis impedit. Culpa voluptates tenetur numquam molestias laudantium provident quia nam labore soluta.</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex dolorum perferendis illo. Repudiandae necessitatibus expedita, amet rem atque saepe ut voluptates dolore harum, dicta porro error eius, repellat laudantium? Quae esse voluptate quibusdam recusandae.</p>
 					<figure class="main-content__modal-wrapper" role="presentation">
-						<a href="#seal-modal" data-modal-open>
-							<img src="assets/img/4160_optim.jpg" alt="Picture of Seals swimming and Sea Lions on a rock.">
+						<a href="#seal-modal" data-modal-open class="teaser lazyload">
+							<!-- <img src="assets/img/seals_hi.jpg" alt="Picture of Seals swimming and Sea Lions on a rock." class="lazyload"> -->
+							<img
+								alt="Seals swimming and Sea Lions on a rock."
+								src="assets/img/seals_lo.jpg"
+								data-src="assets/img/seals_hi.jpg"
+								class="lazyload" />
 							<div class="main-content__modal-trigger">
 								<span class="hide-text">Open Modal</span>
 							</div>
@@ -117,12 +126,12 @@
 			
 		<!-- Document footer -->
 		<footer class="container container--transparent global-footer">			
-			<p>&copy; 2018 Review Media Limited. All rights reserved.</p>
+			<p>&copy; 2018 Review Page Media.</p>
 		</footer>
 
 		<!-- Modal -->
-		<div id="seal-modal" style="display:none" class="modal__container">
-			<img src="assets/img/4160_optim.jpg" alt="Image of Seal and fishes swimming and a Sea Lion on a rock.">
+		<div id="seal-modal" style="display:none" class="modal__container teaser lazyload">
+			<img src="assets/img/seals_hi.jpg" alt="Image of Seal and fishes swimming and a Sea Lion on a rock." class="lazyload">
 		</div>
 		<div class="modal">
 			<span data-modal-close class="circle">

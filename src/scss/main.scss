@@ -3,7 +3,8 @@
 */
 
 // Vendor
-@import "vendor/modal/modal_vendor";
+@import "vendor/modal";
+@import "vendor/lazysizes";
 
 // Base settings:
 @import 'base/bs-reboot'; // https://v4-alpha.getbootstrap.com/content/reboot/
