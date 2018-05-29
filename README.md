@@ -13,4 +13,4 @@ There is a mildly opinionated SCSS folder system loosely based on [ITCSS](https:
 Images are lazy-loaded/LQIP with the following lib: [github.com/aFarkas/lazysizes](https://github.com/aFarkas/lazysizes)
 
 **JS:**\
-There is a rating button system using some vanilla JS. I plan to update this to utilise Vue.js and likely some gentle anim and am working toward that at the moment.
+There is a rating button system using some vanilla JS. This is being updated to utilise some more visual feedback with gentle anim.
