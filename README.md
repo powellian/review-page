@@ -1,7 +1,7 @@
 ## PiFrame - review page example
 
 **CSS:**\
-SCSS and BEM are used throughout and compiled via the SCSS compilation script: `sass --watch src/scss:assets/css --style compressed`
+SCSS and BEM are used throughout and processed via: `sass --watch src/scss:assets/css --style compressed`
 
 This watches and compiles: 
 - `src/scss/main.scss`  
