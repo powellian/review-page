@@ -3,7 +3,7 @@
 **CSS:**\
 SCSS and BEM are used throughout and processed via: `sass --watch src/scss:assets/css --style compressed`
 This watches and compiles: 
-- `src/scss/main.scss`
+- `src/scss/main.scss`\
 *into*
 - `assets/css/main.css` - and - `assets/css/main.map.css`
 
